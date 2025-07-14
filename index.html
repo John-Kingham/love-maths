@@ -1,13 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Document</title>
-</head>
-<body>
-    <h1>It's working!</h1>
-    <script src="assets/js/script.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Font Awesome link -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+            integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <!-- Google Font links -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet"
+        />
+        <!-- Local style -->
+        <link rel="stylesheet" href="assets/css/style.css" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1 class="heading">
+            <img src="assets/images/logo.png" alt="logo" class="logo" />
+            Love Maths
+        </h1>
+        <div class="game-area"></div>
+        <div class="score-area">
+            <p class="scores">Correct Answers <span id="score">0</span></p>
+            <p class="scores">
+                Incorrect Answers <span id="incorrect">0</span>
+            </p>
+        </div>
+        <script src="assets/js/script.js"></script>
+    </body>
 </html>
