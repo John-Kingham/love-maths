@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener("click", function () {
             let dataType = this.getAttribute("data-type");
             if (dataType === "submit") {
-                alert("You clicked submit!");
+                checkAnswer();
             } else {
                 runGame(dataType);
             }
@@ -34,12 +34,38 @@ function runGame(gameType) {
     }
 }
 
+/**
+ * Check the user's answer against the correct answer
+ */
 function checkAnswer() {
-
+    let userAnswer = parseInt(document.querySelector("#answer-box").value);
+    let calculatedAnswer = calculateCorrectAnswer();
+    if (userAnswer === calculatedAnswer[0]) {
+        alert("Hey! You got it right!");
+    } else {
+        alert(`Wrong! You answered ${userAnswer}. The correct answer was ${calculatedAnswer[0]}.`);
+    }
+    runGame(calculatedAnswer[1]);
 }
 
+/**
+ * Reads the operands and operator from the dom.
+ * 
+ * Returns: [int: answer, str: operationName]
+ * 
+ * operationName in ("addition", "subtract", "multiply", "division")
+ */
 function calculateCorrectAnswer() {
+    let operand1 = parseInt(document.querySelector("#operand1").textContent);
+    let operand2 = parseInt(document.querySelector("#operand2").textContent);
+    let operator = document.querySelector("#operator").textContent;
 
+    if (operator === "+") {
+        return [operand1 + operand2, "addition"];
+    } else {
+        alert(`Unimplemented operator: ${operator}`);
+        throw `Unimplemented operator: ${operator}. Aborting!`;
+    }
 }
 
 function incrementScore() {
