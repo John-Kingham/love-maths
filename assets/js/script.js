@@ -12,8 +12,13 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 runGame(dataType);
             }
-        })
+        });
     }
+    document.getElementById("answer-box").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            checkAnswer();
+        }
+    });
     runGame("addition");
 })
 
@@ -103,6 +108,8 @@ function displayAdditionQuestion(operand1, operand2) {
     document.querySelector("#operand1").textContent = operand1;
     document.querySelector("#operand2").textContent = operand2;
     document.querySelector("#operator").textContent = "+";
+    document.querySelector("#answer-box").value = "";
+    document.querySelector("#answer-box").focus();
 }
 
 /**
@@ -116,6 +123,8 @@ function displaySubtractQuestion(operand1, operand2) {
     document.querySelector("#operand1").textContent = biggerOperand;
     document.querySelector("#operand2").textContent = smallerOperand;
     document.querySelector("#operator").textContent = "-";
+    document.querySelector("#answer-box").value = "";
+    document.querySelector("#answer-box").focus();
 }
 
 /**
@@ -127,6 +136,8 @@ function displayMultiplyQuestion(operand1, operand2) {
     document.querySelector("#operand1").textContent = operand1;
     document.querySelector("#operand2").textContent = operand2;
     document.querySelector("#operator").textContent = "x";
+    document.querySelector("#answer-box").value = "";
+    document.querySelector("#answer-box").focus();
 }
 
 function displayDivisionQuestion() {
