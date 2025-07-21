@@ -37,6 +37,8 @@ function runGame(gameType) {
         displayMultiplyQuestion(num1, num2);
     } else if (gameType === "subtract") {
         displaySubtractQuestion(num1, num2);
+    } else if (gameType === "division") {
+        displayDivisionQuestion(num1, num2);
     } else {
         alert(`Unknown game type: ${gameType}`);
         throw `Unknown game type: ${gameType}. Aborting!`;        
@@ -76,6 +78,8 @@ function calculateCorrectAnswer() {
         return [operand1 * operand2, "multiply"];
     } else if (operator === "-") {
         return [operand1 - operand2, "subtract"];
+    } else if (operator === "/") {
+        return [operand1 / operand2, "division"];
     } else {
         alert(`Unimplemented operator: ${operator}`);
         throw `Unimplemented operator: ${operator}. Aborting!`;
@@ -101,8 +105,8 @@ function incrementWrongAnswer() {
 
 /**
  * Displays the addition question
- * @param {number} operand1 
- * @param {number} operand2 
+ * @param {Number} operand1 
+ * @param {Number} operand2 
  */
 function displayAdditionQuestion(operand1, operand2) {
     document.querySelector("#operand1").textContent = operand1;
@@ -114,8 +118,8 @@ function displayAdditionQuestion(operand1, operand2) {
 
 /**
  * Displays the subtraction question
- * @param {number} operand1 
- * @param {number} operand2 
+ * @param {Number} operand1 
+ * @param {Number} operand2 
  */
 function displaySubtractQuestion(operand1, operand2) {
     let biggerOperand = (operand1 > operand2) ? operand1 : operand2;
@@ -129,8 +133,8 @@ function displaySubtractQuestion(operand1, operand2) {
 
 /**
  * Displays the multiplication question
- * @param {number} operand1 
- * @param {number} operand2 
+ * @param {Number} operand1 
+ * @param {Number} operand2 
  */
 function displayMultiplyQuestion(operand1, operand2) {
     document.querySelector("#operand1").textContent = operand1;
@@ -140,6 +144,19 @@ function displayMultiplyQuestion(operand1, operand2) {
     document.querySelector("#answer-box").focus();
 }
 
-function displayDivisionQuestion() {
-
+/**
+ * Displays the division question
+ * @param {Number} operand1 
+ * @param {Number} operand2 
+ */
+function displayDivisionQuestion(operand1, operand2) {
+    // The answer should always be an integer, so the bigger operand is 
+    // set to the product of the passed-in operands.
+    let biggerOperand = operand1 * operand2;
+    let smallerOperand = operand1;
+    document.querySelector("#operand1").textContent = biggerOperand;
+    document.querySelector("#operand2").textContent = smallerOperand;
+    document.querySelector("#operator").textContent = "/";
+    document.querySelector("#answer-box").value = "";
+    document.querySelector("#answer-box").focus();
 }
