@@ -15,8 +15,26 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
     document.getElementById("answer-box").addEventListener("keypress", function(event) {
-        if (event.key === "Enter") {
-            checkAnswer();
+        switch (event.key) {
+            case "Enter":
+                checkAnswer();
+                break;
+            case "+":
+                event.preventDefault();
+                runGame("addition");
+                break;
+            case "-":
+                event.preventDefault();
+                runGame("subtract");
+                break;
+            case "*":
+                event.preventDefault();
+                runGame("multiply");
+                break;
+            case "/":            
+                event.preventDefault();
+                runGame("division");
+                break;
         }
     });
     runGame("addition");
